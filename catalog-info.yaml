@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: azure-live-gitops
+  description: This is GitOps manifest for azure-live   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: rhtap/gitops=azure-live
+    backstage.io/kubernetes-id: azure-live 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: tnevrlka-rhtap/azure-live-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: tnevrlka-rhtap.azure-live-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:azure-live
